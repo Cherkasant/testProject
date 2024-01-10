@@ -1,0 +1,63 @@
+.button {
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.disabled {
+    background: #d9e1f0;
+    color: #9bacc9;
+    pointer-events: none;
+}
+
+.save {
+    border: 1px solid #d0d0d0;
+    color: #ffffff;
+}
+
+.save:hover {
+    background: #0e4298;
+    color: #ffffff !important;
+}
+
+.next {
+    border: 1px solid #bbcbdf;
+    width: 60px;
+    height: 60px;
+}
+
+.next:hover {
+    background-color: #dadada;
+}
+
+.delete {
+    border: 1px solid #d0d0d0;
+    color: #ffffff;
+}
+
+.delete:hover {
+    background-color: red;
+}
+
+.clicked {
+    background: #0e4298;
+}
+
+.add {
+    border: 1px solid #d0d0d0;
+    color: #ffffff;
+}
+
+.add:hover {
+    background-color: #61dafb;
+}

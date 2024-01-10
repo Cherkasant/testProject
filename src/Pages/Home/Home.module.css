@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: #282c34;
+    min-height: 100vh;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.contentBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    color: black;
+    background-color: white;
+    border: 2px solid red;
+}
+
+.buttonsBlock {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.wrapModal {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(155, 172, 201, 0.3);
+    transition: all 0.7s;
+    position: fixed;
+}
+
+.showModal {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s;
+}
+
+.infoBlock {
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    border: 1px solid blue;
+    padding: 20px;
+}
+
+.image {
+    width: 600px;
+    height: 600px;
+    flex: 1
+}
