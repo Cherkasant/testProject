@@ -30,7 +30,7 @@ const Home = () => {
 
   const previousID = useSelector(photoSelector.getPhoto)
 
-  const { data, isLoading, refetch } = useGetPhotoDataQuery()
+  const { data, isLoading, refetch, isError } = useGetPhotoDataQuery()
   const { data: PreviousPhoto } = useGetPreviousPhotoQuery(previousID, { skip: previous })
   const { data: code } = useLogInQuery()
   const [deleteLike] = useDeleteLikePhotoMutation()
@@ -61,6 +61,8 @@ const Home = () => {
   return <div className={styles.container}>
     <div className={styles.contentBlock}>
       {isLoading && <div>Loading.....</div>}
+      {isError && <div>Parsing error...(Rate Limit Exceeded.
+        Demo apps are limited to 50 requests per hour)</div>}
       {data && <img src={!previous ? data.url : PreviousPhoto.url} alt={'ssss'} className={styles.image} />}
     </div>
     <div className={styles.infoBlock}>
