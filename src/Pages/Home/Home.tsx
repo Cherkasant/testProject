@@ -74,7 +74,8 @@ const Home = () => {
     <div className={styles.buttonsBlock}>
       <Button btnType={ButtonTypes.AddButton} onClick={onUpdateButtonClick}
       ><IoAddCircleOutline /></Button>
-      <Button btnType={ButtonTypes.NextButton} onClick={onPreviousButtonClick} disabled={ErrorPrevious}><SlArrowLeft /></Button>
+      <Button btnType={ButtonTypes.NextButton} onClick={onPreviousButtonClick}
+              disabled={ErrorPrevious || !previousID}><SlArrowLeft /></Button>
       <Button btnType={ButtonTypes.SaveButton} clicked={clicked}
               onClick={onDownloadClick}><IoSave /></Button>
       <Button btnType={ButtonTypes.DeleteButton} onClick={() => deleteLike(data.card.id)}><AiOutlineDelete /></Button>
