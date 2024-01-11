@@ -13,17 +13,22 @@ type ModalProps = {
 }
 
 const Modal: FC<ModalProps> = ({ modal, data }) => {
+
   const [updateTag] = useUpdateTagsPhotoMutation()
   const [title, setTitle] = useState('')
 
-  const onChangeHandlerDebouncedTitle = useDebouncedCallback((e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value), 300)
+  const onChangeHandlerDebouncedTitle = useDebouncedCallback((e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value),
+    300)
+  const onUpdateBtnClick = () => {
+    updateTag({ id: data?.id.toString(), tag: title })
+  }
   return <div className={classNames(styles.wrap, { [styles.activeModal]: modal })}
               onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
     <div className={styles.text}>Enter tag:</div>
     <input type={'text'} className={styles.input} placeholder={'Enter title tag...'}
            onChange={(e) => onChangeHandlerDebouncedTitle(e)} defaultValue={title} />
     <Button btnType={ButtonTypes.AddButton} btnClassName={styles.btn}
-            onClick={() => updateTag({ id: data?.id.toString(), tag: title })}>Add</Button>
+            onClick={onUpdateBtnClick}>Add</Button>
   </div>
 }
 

@@ -45,7 +45,7 @@ export const api = createApi({
             id: response.id,
             date: response.created_at,
             info: response.description,
-            user: response.user.name,
+            user: response.user?.name,
             download: response.downloads,
             width: response.width,
             height: response.height,
@@ -71,7 +71,7 @@ export const api = createApi({
     }),
     logIn: build.query<any, void>({
       query: () => ({
-        url: `unsplash.com/oauth/token?client_id=${process.env.REACT_APP_API_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=y1PXx4yEcxHnfkoRzsM-Y48EmVPfoLNhIjnCaoMA3ZU&grant_type=authorization_code`,
+        url: `unsplash.com/oauth/token?client_id=${process.env.REACT_APP_API_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=6nw-EEX3ZTtKJhf-LfGgmCjPVlaLrGYiOiMds6epUMc&grant_type=authorization_code`,
         method: 'POST',
       }),
       transformResponse: (response: any) => {

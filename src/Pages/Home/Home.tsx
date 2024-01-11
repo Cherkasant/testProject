@@ -26,7 +26,6 @@ const Home = () => {
   const [previous, setPrevious] = useState(false)
   const [active, setActiveModal] = useState(false)
 
-
   const dispatch = useDispatch()
 
   const previousID = useSelector(photoSelector.getPhoto)
