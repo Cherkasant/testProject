@@ -31,7 +31,7 @@ const Home = () => {
   const previousID = useSelector(photoSelector.getPhoto)
 
   const { data, isLoading, refetch, isError } = useGetPhotoDataQuery()
-  const { data: PreviousPhoto } = useGetPreviousPhotoQuery(previousID, { skip: previous })
+  const { data: PreviousPhoto, isError: ErrorPrevious } = useGetPreviousPhotoQuery(previousID, { skip: previous })
   const { data: code } = useLogInQuery()
   const [deleteLike] = useDeleteLikePhotoMutation()
 
@@ -72,13 +72,14 @@ const Home = () => {
       </div>
     </div>
     <div className={styles.buttonsBlock}>
-      <Button btnType={ButtonTypes.AddButton} onClick={onUpdateButtonClick}><IoAddCircleOutline /></Button>
-      <Button btnType={ButtonTypes.NextButton} onClick={onPreviousButtonClick}><SlArrowLeft /></Button>
+      <Button btnType={ButtonTypes.AddButton} onClick={onUpdateButtonClick}
+      ><IoAddCircleOutline /></Button>
+      <Button btnType={ButtonTypes.NextButton} onClick={onPreviousButtonClick} disabled={ErrorPrevious}><SlArrowLeft /></Button>
       <Button btnType={ButtonTypes.SaveButton} clicked={clicked}
               onClick={onDownloadClick}><IoSave /></Button>
       <Button btnType={ButtonTypes.DeleteButton} onClick={() => deleteLike(data.card.id)}><AiOutlineDelete /></Button>
       <Button btnType={ButtonTypes.NextButton}
-              onClick={() => DownloadImage(data.url, data.id)}><SlArrowRight /></Button>
+              onClick={() => DownloadImage(data.url, data.id)} disabled={isError}><SlArrowRight /></Button>
     </div>
     <div
       className={classNames(styles.wrapModal, {
